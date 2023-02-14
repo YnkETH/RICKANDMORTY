@@ -7,11 +7,13 @@ import { Link } from "react-router-dom";
 export default function Navbar(props){
     return(
         <div className={style.container}>
-            <Link className={style.link} to='/about'>About</Link>
-            <Link className={style.link} to='/home'>Home</Link>
-            <Link className={style.link} to='/favorites'>Favorites</Link>
+            
+            <Link className={style.buttonClass} to='/about'>About</Link>
+            <Link className={style.buttonClass} to='/home'>Home</Link>
+            <Link className={style.buttonClass} to='/favorites'>Favorites</Link>
+            <button className={style.buttonClass1} onClick={props.unLogin} >Salir</button>
             <SearchBar onSearch={props.onSearch} onSearchB={props.onSearchB}    />
-            <button className={style.buttonClass} onClick={props.unLogin} >Salir</button>
+           
         </div>
     )
 }

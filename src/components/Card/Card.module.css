@@ -31,6 +31,7 @@
     max-width: 150px;
     width: 150px;
     right: 0px;
+    text-align: center;
 }
 .textEvery2{
     position: relative;
@@ -38,8 +39,8 @@
     max-width: 150px;
     width: 150px;
     right: 0px;
+    text-align: center;
 }
-a{
-    font-family: 'Courier New', Courier, monospace;
-    
+.textContainer a{
+    color:white;
 }

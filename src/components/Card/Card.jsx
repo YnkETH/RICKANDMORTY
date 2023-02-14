@@ -1,4 +1,4 @@
-import styled from "styled-components";
+   import styled from "styled-components";
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -22,6 +22,7 @@ right: 80px;
 width: 250px;
 background: rgba(120, 130 , 140, 0.5);
 border: 1px solid #333333; border-radius: 3px 3px 3px 3px; box-shadow: 0 0 1px #93291b inset; color: #f5f5f5; padding: 5px;
+text-align: center;
 `;
 
 const Text = styled.h2`
@@ -30,7 +31,7 @@ color: black;
 font-size: 15px;
 font-weight: 400;
 background: rgba(250, 250 , 250, 1);
-text­align: justify;
+text­align: center;
 position: sticky;
 color: black;
 `;
