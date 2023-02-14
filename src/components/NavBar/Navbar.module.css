@@ -1,6 +1,54 @@
 .container {
-    width: full;
     display: flex;
-    justify-content: end;
-    margin-bottom: 50px;   
+    justify-content: flex-end;
+    margin-bottom: 50px;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+.buttonClass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    margin-top: 40px;
+  }
+  
+  
+  .buttonClass {
+    width: 50px;
+    height: 30px;
+    background: dodgerblue;
+    border-radius: 6px;
+    transition: all .3s cubic-bezier(0.67, 0.17, 0.40, 0.83);
+  }
+  
+  .buttonClass svg {
+    transform: rotate(180deg);
+    transition: all .5s;
+  }
+  
+  .buttonClass:hover {
+    cursor: pointer;
+  }
+  a{  
+    color: white;
+    font: inherit;
+    padding: 0.5rem;
+    padding-top: 15px;
+    width: 100px;
+    margin-left: 1%;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

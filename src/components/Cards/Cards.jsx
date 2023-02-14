@@ -1,5 +1,6 @@
 import Card from '../Card/Card.jsx';
 import React from 'react';
+// import styles from "./Cards.module.css";
 import styled from 'styled-components' 
 
 const StyledCard = styled(Card)`
@@ -13,7 +14,7 @@ const StyledCard = styled(Card)`
 export default function Cards(props) {
    const { characters } = props;
    return (
-      <div style={{display: 'flex', justifyContent: 'space-around'}}>
+      <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
         {characters.map(character => (
           <StyledCard
             key={character.name}

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+import styles from "./Detail.module.css"
 
 export default function Detail(){
 
@@ -28,14 +29,18 @@ export default function Detail(){
       }, [detailId]);
       
     return(
-        <div>
-            <Link to='/home'><button>To Home</button></Link>
-            <h1>{character.name}</h1>
-            <h2>{character.gender}</h2>
-            <h2>{character.origin?.name}</h2>
-            <h2>{character.location?.name}</h2>
-            <img src={character.image} alt='not found'/>
-
+        <div className={styles.container}>
+          <div className={styles.personcontainer}>
+            <Link to='/home' ><button className={styles.cit}>To Home</button></Link>
+            <div className={styles.info}>
+            <a>Name:</a> <h1>{character.name}</h1>
+            <a>Gender:</a> <h2>{character.gender}</h2> 
+            <a>Origin:</a> <h2>{character.origin?.name}</h2>
+              {/*<h2>{character.location?.name}</h2> */} 
+             <a>Id:</a> <h2>{character.id} </h2> 
+              <img src={character.image} className={styles.imgStyle} alt='not found'/>
+            </div>
+          </div>
         </div>
     )
 }
