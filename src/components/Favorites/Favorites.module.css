@@ -2,5 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     width:100%;
+    margin-left: 15px; 
+    gap: 10px; /* el gap le da un espacio */
 }
 

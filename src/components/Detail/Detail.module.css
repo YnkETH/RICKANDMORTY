@@ -11,7 +11,7 @@
     border-color: white;
     border-radius: 10px;
     width: 350px;
-    height: 650px;
+    height: 600px;
     position: relative;  
     margin-left: 40%;  
 }
@@ -19,7 +19,8 @@
 .personcontainer {
     margin-top: 10px;
     margin-bottom: 30px; 
-    margin-left: 10px;
+    margin-left: 2.5%;
+   
     
 }
 

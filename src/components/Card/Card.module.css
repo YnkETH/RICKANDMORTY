@@ -1,5 +1,5 @@
 .container {
-    
+    background-color: #604396;
     font-family: 'Courier New', Courier, monospace;
     border: 3px;
     border-style: solid;
@@ -8,8 +8,8 @@
     width: 350px;
     height: 470px;
     position: relative;
-    margin-left: 15px;
-    
+    display: inline-block; 
+    margin: auto;
 }
 .buttonContainer {
     display: flex;

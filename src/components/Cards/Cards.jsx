@@ -2,6 +2,7 @@ import Card from '../Card/Card.jsx';
 import React from 'react';
 // import styles from "./Cards.module.css";
 import styled from 'styled-components' 
+import styles from './Cards.module.css'
 
 const StyledCard = styled(Card)`
 &:hover {
@@ -14,7 +15,7 @@ const StyledCard = styled(Card)`
 export default function Cards(props) {
    const { characters } = props;
    return (
-      <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
+      <div className={styles.container}>
         {characters.map(character => (
           <StyledCard
             key={character.name}

@@ -121,7 +121,7 @@ const onSearch = (character) => {
     }, [access]);
 
   return (
-    <div>
+    <div className='container'>
       {location.pathname !== '/' &&  <Navbar onSearch={onSearch}  onSearchB={onSearchB} unLogin={unlogin}/>}  
       <Routes>
         <Route exact path='/' element={<Form login={login}/>}/>
