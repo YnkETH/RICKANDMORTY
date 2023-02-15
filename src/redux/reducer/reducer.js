@@ -1,9 +1,10 @@
-import { DELETE_FAVORITE, ADD_FAVORITE } from "../actions/types";
+import { DELETE_FAVORITE, ADD_FAVORITE, FILTER, ORDER } from "../actions/types";
 
 
 
 const initialState = {
-    myFavorites: []
+    myFavorites: [],
+    allCharacters: [],
 };
 
 function rootReducer (state=initialState, { type, payload }){
@@ -11,7 +12,9 @@ function rootReducer (state=initialState, { type, payload }){
         case ADD_FAVORITE:
             return {
                 ...state,
+                allCharacters: [...state.allCharacters, payload],
                 myFavorites: [...state.myFavorites, payload]
+
             }
         case DELETE_FAVORITE:
             const filtered = state.myFavorites.filter(
@@ -20,9 +23,43 @@ function rootReducer (state=initialState, { type, payload }){
                 ...state,
                 myFavorites: filtered
             }
+        case FILTER:
+            const filterCopy = [...state.allCharacters];
+
+            const filterGender = filterCopy.filter(char => char.gender === payload);
+
+            return {
+                ...state,
+                myFavorites: filterGender,
+            }
+        
+        case ORDER:
+            const orderCopy = [...state.allCharacters];
+
+            const order = orderCopy.sort((a,b) => {
+                if(a.id > b.id){    //si es ascendente la condicion lo muevo a la izquierda y si no a la derecha
+                    return payload === "Ascendente" ? 1 : -1
+                    /*if (payload === 'Ascendente') {
+                    return 1
+                   }else{
+                    return -1
+                   }*/
+                }
+                if(a.id < b.id){
+                    return payload === "Ascendente" ? -1 : 1
+                }
+                else return 0
+            });
+
+            return {
+                ...state,
+                myFavorites: order
+            }
+
         default:
             return state
     }
 }
 
 export default rootReducer;
+
