@@ -63,7 +63,7 @@ const onSearch = (character) => {
   }else{    //hacemos el filter y preguntamos por el id y lo comparamos con el character que llega por parametro y luego hacemos la peticion if
   let a = characters.filter(char => char.id == character)
       if (a.length==0){
-        fetch(`https://rickandmortyapi.com/api/character/${character}`)     // peticion fetch
+        fetch(`http://localhost:3001/rickandmorty/character/${character}`)     // peticion fetch
         .then((response) => response.json())      //ok cuando tengas una respuesta conviertela en json
         .then((data) => {
     //   console.log(characters)
