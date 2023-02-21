@@ -46,36 +46,36 @@ function App () {
 
 
 const onSearch = (character) => {
-  //pregunta si no existe character aun o no esta seteado
-  //  if(!characters.length){
-   if(characters.length<1){ fetch(`https://rickandmortyapi.com/api/character/${character}`)     // peticion fetch
-   .then((response) => response.json())      //ok cuando tengas una respuesta conviertela en json
-   .then((data) => {
+
+  if(characters.length<1){ 
+  fetch(`http://localhost:3001/rickandmorty/character/${character}`)     // peticion fetch
+  .then((response) => response.json())      //ok cuando tengas una respuesta conviertela en json
+  .then((data) => {
 //   console.log(characters)
-       if(data.name){          //si existe el nombre de la informacion entonces vas a configurar la info de caracters
-         setCharacters((oldChars) => [...oldChars,data]
-         );
-       }else{
-         window.alert('No hay personajes con ese ID ')
-       }
-   })
-  
- }else{    //hacemos el filter y preguntamos por el id y lo comparamos con el character que llega por parametro y luego hacemos la peticion if
+      if(data.name){          //si existe el nombre de la informacion entonces vas a configurar la info de caracters
+        setCharacters((oldChars) => [...oldChars,data]
+        );
+      }else{
+        window.alert('No hay personajes con ese ID ')
+      }
+  })
+
+  }else{    //hacemos el filter y preguntamos por el id y lo comparamos con el character que llega por parametro y luego hacemos la peticion if
   let a = characters.filter(char => char.id == character)
-     if (a.length==0){
-       fetch(`https://rickandmortyapi.com/api/character/${character}`)     // peticion fetch
-       .then((response) => response.json())      //ok cuando tengas una respuesta conviertela en json
-       .then((data) => {
-   //   console.log(characters)
-           if(data.name){          //si existe el nombre de la informacion entonces vas a configurar la info de caracters
-             setCharacters((oldChars) => [...oldChars,data]
-             );
-           }else{
-             window.alert('No hay personajes con ese ID ')
-           }
-       })
- }
-} 
+      if (a.length==0){
+        fetch(`https://rickandmortyapi.com/api/character/${character}`)     // peticion fetch
+        .then((response) => response.json())      //ok cuando tengas una respuesta conviertela en json
+        .then((data) => {
+    //   console.log(characters)
+            if(data.name){          //si existe el nombre de la informacion entonces vas a configurar la info de caracters
+              setCharacters((oldChars) => [...oldChars,data]
+              );
+            }else{
+              window.alert('No hay personajes con ese ID ')
+            }
+        })
+  }
+  } 
 }    
 
  const onSearchB = () => {
@@ -110,7 +110,7 @@ const onSearch = (character) => {
          })
    }
    } 
- }
+  }
 
   const onClose = (id) => {
     setCharacters(characters.filter(char => char.id !== id))
