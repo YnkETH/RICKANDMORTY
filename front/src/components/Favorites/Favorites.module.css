@@ -1,0 +1,7 @@
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    gap: 10px; /* el gap le da un espacio */
+}
+

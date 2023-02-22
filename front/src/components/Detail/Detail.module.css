@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-top: 50px;
+    border-radius: 20px;
+ 
+    font-family: 'Courier New', Courier, monospace;
+    border: 3px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+    width: 350px;
+    height: 600px;
+    position: relative;  
+    margin-left: 40%;  
+}
+
+.personcontainer {
+    margin-top: 10px;
+    margin-bottom: 30px; 
+    margin-left: 2.5%;
+   
+    
+}
+
+.cit {
+    background-color: rgb(200 0 0);
+    font-weight:bold;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px
+}
+
+.info{
+    margin-top: 15px;
+}
+
+.imgStyle{
+    width: 330px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px
+}
+a{
+     
+    font-family: 'Courier New', Courier, monospace;
+}
+h1{
+    margin-left: 150px;
+    font-size: 20px;
+    margin-top: -22px;
+}h2{
+    margin-left: 150px;
+    font-size: 20px;
+    margin-top: -22px;
+}

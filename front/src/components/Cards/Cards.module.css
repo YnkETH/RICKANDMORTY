@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width:100%;
+    color: white;
+    margin-top: 50px;
+    border-radius: 20px;
+    font-family: 'Courier New', Courier, monospace;
+
+    height: 90%;
+    position: relative; 
+  }
