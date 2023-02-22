@@ -48,7 +48,7 @@ function App () {
 const onSearch = (character) => {
 
   if(characters.length<1){ 
-  fetch(`http://localhost:3001/rickandmorty/character/${character}`)     // peticion fetch
+  fetch(`http://localhost:3001/rickandmorty/onsearch/${character}`)     // peticion fetch
   .then((response) => response.json())      //ok cuando tengas una respuesta conviertela en json
   .then((data) => {
 //   console.log(characters)
@@ -63,7 +63,7 @@ const onSearch = (character) => {
   }else{    //hacemos el filter y preguntamos por el id y lo comparamos con el character que llega por parametro y luego hacemos la peticion if
   let a = characters.filter(char => char.id == character)
       if (a.length==0){
-        fetch(`http://localhost:3001/rickandmorty/character/${character}`)     // peticion fetch
+        fetch(`http://localhost:3001/rickandmorty/onsearch/${character}`)     // peticion fetch
         .then((response) => response.json())      //ok cuando tengas una respuesta conviertela en json
         .then((data) => {
     //   console.log(characters)
@@ -82,7 +82,7 @@ const onSearch = (character) => {
    ///creamos un numero random y lo pasamos como parametro
      let numeroRandom =  Math.floor(Math.random()* 826)
 
-   if(characters.length<1){ fetch(`https://rickandmortyapi.com/api/character/${numeroRandom}`)     // peticion fetch
+   if(characters.length<1){ fetch(`http://localhost:3001/rickandmorty/onsearch/${numeroRandom}`)     // peticion fetch
      .then((response) => response.json())      //ok cuando tengas una respuesta conviertela en json
      .then((data) => {
  //   console.log(characters)
@@ -97,7 +97,7 @@ const onSearch = (character) => {
    }else{    //hacemos el filter y preguntamos por el id y lo comparamos con el character que llega por parametro y luego hacemos la peticion if
    let a = characters.filter(char => char.id == numeroRandom)
        if (a.length==0){
-         fetch(`https://rickandmortyapi.com/api/character/${numeroRandom}`)     // peticion fetch
+         fetch(`http://localhost:3001/rickandmorty/onsearch/${numeroRandom}`)     // peticion fetch
          .then((response) => response.json())      //ok cuando tengas una respuesta conviertela en json
          .then((data) => {
      //   console.log(characters)

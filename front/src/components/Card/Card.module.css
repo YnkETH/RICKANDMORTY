@@ -6,7 +6,7 @@
     border-color: white;
     border-radius: 10px;
     width: 350px;
-    height: 470px;
+    height: 570px;
     position: relative;
     display: inline-block; 
     margin: auto;
@@ -23,17 +23,10 @@
     position: absolute;
     display: inline-block;
     justify-content: space-evenly;
-    margin-top: 0px;
+    margin-top: 15px;
+    
 }
 .textEvery1{
-    position: relative;
-    padding: 5px;
-    max-width: 150px;
-    width: 150px;
-    right: 0px;
-    text-align: center;
-}
-.textEvery2{
     position: relative;
     padding: 5px;
     max-width: 150px;

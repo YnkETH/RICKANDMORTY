@@ -12,7 +12,7 @@ export default function Detail(){
     const { detailId } = useParams();
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/${detailId}`)
+        fetch(`http://localhost:3001/rickandmorty/detail/${detailId}`)
           .then((response) => response.json())
           .then((char) => {
             if (char.name) {
@@ -35,6 +35,7 @@ export default function Detail(){
             <div className={styles.info}>
             <a>Name:</a> <h1>{character.name}</h1>
             <a>Gender:</a> <h2>{character.gender}</h2> 
+            <a>Status</a> <h2>{character.status} </h2>
             <a>Origin:</a> <h2>{character.origin?.name}</h2>
               {/*<h2>{character.location?.name}</h2> */} 
              <a>Id:</a> <h2>{character.id} </h2> 

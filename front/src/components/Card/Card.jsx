@@ -80,7 +80,9 @@ export function Card(props) {
         
          <div className={styles.textContainer}>
          <a>Species:</a> <Text className={styles.textEvery1}> {props.species}</Text>
-         <a>Gender:</a>  <Text className={styles.textEvery2}> {props.gender}</Text>
+         <a>Gender:</a>  <Text className={styles.textEvery1}> {props.gender}</Text>
+         <a>Origin:</a>  <Text className={styles.textEvery1}> {props.origin}</Text>
+         <a>Status:</a>  <Text className={styles.textEvery1}> {props.status}</Text>
          </div>
       </div>
    );

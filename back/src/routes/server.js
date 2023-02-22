@@ -1,4 +1,4 @@
-const http = require("http");
+/* const http = require("http");
 
 const data = require("../utils/data.js");
 
@@ -29,4 +29,26 @@ http.createServer(function(req, res){
 
 // ["rickandmorty", "character", "id"]
 
-/// NO OLVIDAR ALGO IMPORTANTE PARA LEVANTAR EL SERVIDOR HACEMOS EL START EN PACKAGE JSON PEUDE SER CON NODEMON
+/// NO OLVIDAR ALGO IMPORTANTE PARA LEVANTAR EL SERVIDOR HACEMOS EL START EN PACKAGE JSON PEUDE SER CON NODEMON */
+
+const http = require("http");
+const getCharById = require('../controllers/getCharById')
+const getCharDetail = require("../controllers/getCharDetail")
+
+http.createServer( ( req,res ) =>{
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    let id = req.url.split('/').pop()  
+
+    if(req.url.includes('onsearch')){             
+        getCharById(res,id)
+    }
+
+    if(req.url.includes('detail')){
+        getCharDetail(res,id)      
+    }
+
+}).listen(3001, () => {
+    console.log('servidor levantado')
+})
+
