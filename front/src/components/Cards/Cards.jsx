@@ -13,7 +13,7 @@ const StyledCard = styled(Card)`
 `;
 
 export default function Cards(props) {
-   const { characters } = props;
+   const { characters, onClose } = props;
    return (
       <div className={styles.container}>
         {characters.map(character => (
@@ -26,7 +26,7 @@ export default function Cards(props) {
             id={character.id}
             status={character.status}
             origin={character.origin?.name}
-            onClose={props.onClose}
+            onClose={()=>onClose(character.id)}
           />
         ))}
       </div>

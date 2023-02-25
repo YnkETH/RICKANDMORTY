@@ -1,12 +1,18 @@
 import { connect } from "react-redux"
-import  Card  from "../Card/Card"
 import styles from './Favorites.module.css';
-import { orderCards , filterCards } from "../../redux/actions/actions";
+import { orderCards , filterCards, getFavorites } from '../../redux/action/action'
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import  Favorite  from "../Favorite/Favorite";
 
 export function Favorites ({ myFavorites }){
     //el dispatch nos permite usar las funciones de actions
     const dispatch = useDispatch(); 
+
+    useEffect(()=>{
+        console.log("useEffect")
+        dispatch(getFavorites())
+    },[])
 
     const handleDispatch = (e) => {
         const { name, value } = e.target;
@@ -14,7 +20,7 @@ export function Favorites ({ myFavorites }){
         if ( name === 'order'){
             return dispatch(orderCards(value))
         }
-        if ( name == 'filter'){
+        if ( name === 'filter'){
             return dispatch(filterCards(value))
         }
     }
@@ -35,18 +41,20 @@ export function Favorites ({ myFavorites }){
                 
             </div>
 
-        <div className={styles.box} >
-            {myFavorites?.map(fav => (
-                <Card className={styles.container}
+            <div className={styles.box}>
+            {myFavorites.length?myFavorites.map(fav => 
+                <Favorite
                 name={fav.name}
                 key={fav.id}
                 species={fav.species}
                 gender={fav.gender}
+                origin={fav.origin}
+                status={fav.status}
                 image={fav.image}
                 id={fav.id}
                 />
-            ))}
-        </div>
+            ):<h1></h1>}
+            </div>
         </div>
     )
 }

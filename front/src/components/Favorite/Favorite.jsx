@@ -1,5 +1,5 @@
-   import styled from "styled-components";
-import styles from "./Card.module.css";
+import styled from "styled-components";
+import styles from "./Favorite.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { addFavorite, deleteFavorite } from "../../redux/action/action";
@@ -35,15 +35,9 @@ text­align: center;
 position: sticky;
 color: black;
 `;
-const Button1 = styled.button` 
-background-color: rgb(200 0 0);
-font-weight:bold;
-color: white;
-border 1px solid white;
-border-radius: 5px
-`;
 
-export function Card(props) {
+
+export function Favorite(props) {
 
    const dispatch = useDispatch();
    const [isFav, setIsFav] = useState(false);
@@ -83,7 +77,6 @@ export function Card(props) {
             ) : (
                <button onClick={handleFavorite}>🤍</button>
             )}
-            <Button1 onClick={() => props.onClose(props.id)}>X</Button1>
          </div>
          <Img  src={props.image} alt="img not found" />
          <Link to={`/detail/${props.id}`} style={{textDecoration: 'none'}}><Title>{props.name}</Title></Link>
@@ -116,4 +109,4 @@ export function mapDispatchToProps(dispatch){
    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default connect(mapStateToProps, mapDispatchToProps)(Favorite);

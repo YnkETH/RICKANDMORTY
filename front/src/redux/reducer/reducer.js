@@ -1,65 +1,59 @@
-import { DELETE_FAVORITE, ADD_FAVORITE, FILTER, ORDER } from "../actions/types";
-
-
+import { DELETE_FAVORITE, ADD_FAVORITE, FILTER,ORDER } from "../action/actionTypes";
 
 const initialState = {
-    myFavorites: [],
-    allCharacters: [],
+  myFavorites: [],
+  allCharacters: [],
 };
 
-function rootReducer (state=initialState, { type, payload }){
-    switch(type){
-        case ADD_FAVORITE:
-            return {
-                ...state,
-                allCharacters: [...state.allCharacters, payload],
-                myFavorites: [...state.myFavorites, payload]
+function rootReducer(state = initialState, { type, payload }) {
+  switch (type) {
+    case ADD_FAVORITE:
+      console.log("payload",payload)
+      return {
+        ...state,
+        allCharacters:[...state.allCharacters, payload],
+        myFavorites: [...state.allCharacters,payload],
+      };
+      case DELETE_FAVORITE:
+        const filtered = state.myFavorites.filter(
+            fav => fav.id !== payload)
+        return {
+            ...state,
+            myFavorites: filtered
+        }
+    case FILTER:
+      const filterCopy = [...state.allCharacters];
+      const filterGender = filterCopy.filter((char) => char.gender === payload);
+      return {
+        ...state,
+        myFavorites: filterGender,
+      };
+      case ORDER:
+        const orderCopy = [...state.allCharacters];
+        console.log(state.allCharacters)
 
+        const order = orderCopy.sort((a,b) => {
+            if(a.id > b.id){
+                return payload === "Ascendente" ? 1 : -1
             }
-        case DELETE_FAVORITE:
-            const filtered = state.myFavorites.filter(
-                fav => fav.id !== payload)
-            return {
-                ...state,
-                myFavorites: filtered
+            if(a.id < b.id){
+                return payload === "Ascendente" ? -1 : 1
             }
-        case FILTER:
-            const filterCopy = [...state.allCharacters];
-
-            const filterGender = filterCopy.filter(char => char.gender === payload);
-
-            return {
-                ...state,
-                myFavorites: filterGender,
-            }
-        
-        case ORDER:
-            const orderCopy = [...state.allCharacters];
-
-            const order = orderCopy.sort((a,b) => {
-                if(a.id > b.id){    //si es ascendente la condicion lo muevo a la izquierda y si no a la derecha
-                    return payload === "Ascendente" ? 1 : -1
-                    /*if (payload === 'Ascendente') {
-                    return 1
-                   }else{
-                    return -1
-                   }*/
-                }
-                if(a.id < b.id){
-                    return payload === "Ascendente" ? -1 : 1
-                }
-                else return 0
-            });
-
-            return {
-                ...state,
-                myFavorites: order
-            }
-
-        default:
-            return state
-    }
+        });
+        return {
+            ...state,
+            myFavorites: order,
+        };
+        case "GET_FAVORITE":
+/*           console.log("reducer ",state.myFavorites)
+          console.log("reducer all",state.allCharacters) */
+          return{
+            ...state,
+            myFavorites:payload
+          };
+    default:
+      return state;
+  }
 }
 
 export default rootReducer;
-
